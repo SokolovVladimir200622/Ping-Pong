@@ -11,71 +11,10 @@
 После этого мы создали скорость для мяча который должен отлетать от персонажей и краев окна в игровом цикле  мы создаём передвижение мяча блягодаря которому мяч сможет выполнять свою функцию после этого мы создали условия для выигрыша и проигрыша если мячик коснулся правой или левой части экрана то тогда персонаж проигрывает к которому попал мяч 
 Кроме этого мы ещё создали класс сложности в котором отобразили сколько жизней у наших персонажей будет и скорость мяча 
 После этого мы загрузили это в игровой цикл где с помощью клавиш в начале игры регулируется сложность на первом уровне например мячик летит медленно на втором все ускоряется и на третьем ещё больше происходит ускорение 
-=================================================================================================================================================
-from pygame import*
-
-ing_hero = "hero.png"
-ing_back = "ack.jpg"
-
-class GameSprite(sprite.Sprite):
-    def __init__(self, player_image, player_x, player_y, size_x, size_y, player_speed):
-        sprite.Sprite.__init__(self)        
-        self.image = transform.scale(image.load(player_image), (size_x, size_y))
-        self.speed = player_speed
-        self.rect = self.image.get_rect()
-        self.rect.x = player_x
-        self.rect.y = player_y
-        
-    def reset(self):
-        win.blit(self.image, (self.rect.x, self.rect.y))
-
-class Player(GameSprite):
-    def update(self):
-        keys = key.get_pressed()
-        if keys[K_UP] and self.rect.y > 5:
-            self.rect.y -= self.speed
-        if keys[K_DOWN] and self.rect.y < win_height - 80:
-            self.rect.y += self.speed
-
-class Player2(GameSprite):
-    def update(self):
-        keys = key.get_pressed()
-        if keys[K_w] and self.rect.y > 5:
-            self.rect.y -= self.speed
-        if keys[K_s] and self.rect.y < win_height - 80:
-            self.rect.y += self.speed
-
-win_height = 500
-win_width = 700
-Players = Player(ing_hero,550 , 120, 120, 120, 20)
-Players2 = Player2(ing_hero,5, 120, 120, 120, 20)
+================================================================================================
+![Screenshot_22](https://user-images.githubusercontent.com/104199450/167239000-0d15bea1-23bb-45b2-9970-288b80b64446.png)
 
 
-win = display.set_mode((win_width, win_height))
-display.set_caption("Шутер")
-background = transform.scale(image.load(ing_back), (win_width, win_height))
-game = True
-finish = False
-clock = time.Clock()
-FPS = 60
 
-while game:
-    for e  in event.get():
-        if e.type == QUIT:
-            game = False
-        
-    if not finish:
-        win.blit(background,(0,0))
-        Players.reset()
-        Players.update()
-        Players2.reset()
-        Players2.update()
-            
-        
-        display.update()
-        
-                                                                                                                                                =
-    time.delay(50)                                                                                                                              =
-=================================================================================================================================================
-
-
+![Screenshot_23](https://user-images.githubusercontent.com/104199450/167239011-cedb4606-2297-45be-b492-9cf169a88348.png)
+![Screenshot_24](https://user-images.githubusercontent.com/104199450/167239016-1206e4fd-016a-4eb6-ab0b-af0554ae1547.png)
